@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Application Survey</title>
+    <style>
+        /* Google Forms Background Color */
+        body {
+            background-color: #f0ebf8;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* The Main Container */
+        .form-container {
+            width: 100%;
+            max-width: 640px;
+        }
+
+        /* Top Purple Header Decorative Bar */
+        .header-decoration {
+            height: 10px;
+            background-color: #673ab7;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #fff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .title-card {
+            border-top: none;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 14px;
+            color: #202124;
+            margin-bottom: 10px;
+        }
+
+        .required-notice {
+            color: #d93025;
+            font-size: 14px;
+        }
+
+        /* Question Styling */
+        .question-text {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .required-star {
+            color: #d93025;
+            margin-left: 4px;
+        }
+
+        /* Input Styling */
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #dadce0;
+            padding: 10px 0;
+            font-size: 14px;
+            outline: none;
+            transition: border-bottom 0.2s;
+        }
+
+        input:focus {
+            border-bottom: 2px solid #673ab7;
+        }
+
+        .radio-group {
+            margin: 8px 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #673ab7;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #673ab7;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: #512da8;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #70757a;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <!-- Main Title Card -->
+        <div class="header-decoration"></div>
+        <div class="card title-card">
+            <h1>Internship Interest Survey</h1>
+            <p>Please fill out this form to apply for the Summer 2026 Internship Program. We are looking for motivated college students eager to learn.</p>
+            <hr style="border: 0.5px solid #dadce0; margin: 15px 0;">
+            <div class="required-notice">* Indicates required question</div>
+        </div>
+
+        <form action="{{ url_for('gmail') }}">
+            
+            <!-- Full Name -->
+            <div class="card">
+                <label class="question-text">Full Name <span class="required-star">*</span></label>
+                <input type="text" placeholder="Your answer" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="card">
+                <label class="question-text">College Name <span class="required-star">*</span></label>
+                <input type="email" placeholder="Your answer" required>
+            </div>
+
+            <!-- Year of Study -->
+            <div class="card">
+                <label class="question-text">What is your current year of study? <span class="required-star">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-option"><input type="radio" name="year" value="1" required> 1st Year</div>
+                    <div class="radio-option"><input type="radio" name="year" value="2"> 2nd Year</div>
+                    <div class="radio-option"><input type="radio" name="year" value="3"> 3rd Year</div>
+                    <div class="radio-option"><input type="radio" name="year" value="4"> 4th Year / Final</div>
+                </div>
+            </div>
+
+            <!-- Internship Domain -->
+            <div class="card">
+                <label class="question-text">Which department are you interested in? <span class="required-star">*</span></label>
+                <select required>
+                    <option value="" disabled selected>Choose</option>
+                    <option value="tech">Software Development</option>
+                    <option value="marketing">Digital Marketing</option>
+                    <option value="design">UI/UX Design</option>
+                    <option value="hr">Human Resources</option>
+                </select>
+            </div>
+
+            <!-- Short Answer -->
+            <div class="card">
+                <label class="question-text">Why do you want to join this internship? <span class="required-star">*</span></label>
+                <input type="text" placeholder="Your answer" required>
+            </div>
+
+            <!-- Submit Button Area -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+                <a href='www.google.com'><input type="submit" class="submit-btn" value="Submit"></a>
+                <div style="font-size: 12px; color: #70757a;">Clear form</div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        This content is neither created nor endorsed by Google. 
+        <br><strong>Form Facilitated by Gemini</strong>
+    </footer>
+
+</body>
+</html>

